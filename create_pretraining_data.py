@@ -23,9 +23,17 @@ import random
 import tokenization
 import tensorflow as tf
 
-flags = tf.flags
+if int(tf.__version__.split('.')[0])>=2:
+  flags = tf.compat.v1.flags  
+else:
+  flags = tf.flags 
 
 FLAGS = flags.FLAGS
+
+###
+#FLAGS['input_file'] = 'sample_text.txt'
+#FLAGS['output_file'] = 'data/sample_text_processed.txt'
+###
 
 flags.DEFINE_string("input_file", None,
                     "Input raw text file (or comma-separated list of files).")
@@ -211,6 +219,7 @@ def create_training_instances(input_files, tokenizer, max_seq_length,
   instances = []
   for _ in range(dupe_factor):
     for document_index in range(len(all_documents)):
+      print("**** {}".format(document_index))
       instances.extend(
           create_instances_from_document(
               all_documents, document_index, max_seq_length, short_seq_prob,

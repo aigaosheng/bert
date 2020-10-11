@@ -1,0 +1,17 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+
+        {
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["--input_file", "sample_text.txt", "--output_file", "./data/sample_tr.txt", "--vocab_file", "/home/gs/Work/shared/bert_data/uncased_L-2_H-128_A-2/vocab.txt", "--do_whole_word_mask", "True"]
+        }
+    ]
+}
